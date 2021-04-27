@@ -551,7 +551,8 @@ client.on('message', message =>{
                 xp: 0,
                 level: 1,
             }
-        }       
+        }      
+ saveBlackJack()
         var embed = new Discord.MessageEmbed()
         .setAuthor(message.author.username)
         .setThumbnail(message.author.avatarURL())
