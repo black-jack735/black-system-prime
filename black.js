@@ -534,6 +534,39 @@ client.on('message', message => {
  saveBlackJack()
 });
 
+client.on('message', message =>{
+    if(message.author.bot) return;
+    if(message.channel.type == "dm") return;
+
+ 
+    let curxp = xp[message.author.id].xp;
+    let curlvl = xp[message.author.id].level;
+    let nextlvlxp = curlvl * 200;
+    let difference = nextlvlxp - curxp
+
+    if(message.content == prefix + "rank"){
+ 
+      if(!xp[message.author.id]) {
+            xp[message.author.id] = {
+                xp: 0,
+                level: 1,
+            }
+        }       
+        var embed = new Discord.MessageEmbed()
+        .setAuthor(message.author.username)
+        .setThumbnail(message.author.avatarURL())
+        .setColor('RANDOM')
+        .setTitle('Your Rank')
+        .addField("Name User", message.author.tag)
+        .addField('XP ', curxp, true)
+        .addField('Level ', curlvl, true)
+        .setColor("#00FFFF")
+        .setFooter(` ${difference} xp till level up `, message.author.displayAvatarURL());
+        message.channel.send(embed);
+ 
+    }
+});
+
 client.on('message', message => {
   if(message.content.startsWith(prefix + "infosetLevel")) {
     if (!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply("Sorry You Not Have Premission Administrator")
