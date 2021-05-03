@@ -37,7 +37,7 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
   console.log("بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ");
     console.log(client.guilds.cache.map(c => `${c.name} : ${c.me.hasPermission(8)} : ${c.memberCount}`));
-  client.user.setActivity( `${prefix}help | BLACK SESTAM IS HERE | SERVERS ${client.guilds.cache.size} | Users ${client.users.cache.size} `);
+  client.user.setActivity( `${prefix}help | BLACK SESTAM VERSION 12.4.0 | SERVERS ${client.guilds.cache.size} | Users ${client.users.cache.size} `);
   console.log(`Logined`);
 });
 
